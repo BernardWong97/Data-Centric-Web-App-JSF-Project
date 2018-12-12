@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Colleges DB - Full Student Details</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+	<h:outputStylesheet library="css" name="styles.css" />
+</h:head>
+
+<h:body>
+	<h2>Full Students Details</h2>
+
+	<h:dataTable value="#{studentController.students}" var="student"
+		headerClass="table-header" rowClasses="table-odd-row,table-even-row">
+		<h:column>
+			<f:facet name="header">Student ID</f:facet>
+            #{student.sid}
+        </h:column>
+		<h:column>
+			<f:facet name="header">Student Name</f:facet>
+            #{student.name}
+        </h:column>
+		<h:column>
+			<f:facet name="header">Course ID</f:facet>
+            #{student.course.cID}
+        </h:column>
+		<h:column>
+			<f:facet name="header">Course Name</f:facet>
+            #{student.course.cName}
+        </h:column>
+		<h:column>
+			<f:facet name="header"> Course Duration</f:facet>
+            #{student.course.duration}
+        </h:column>
+	</h:dataTable>
+
+	<hr />
+	<h:link value="Home" outcome="index" style="margin-right: 5px" />
+	<h:link value="Students" outcome="list_students" />
+
+</h:body>
+</html>
